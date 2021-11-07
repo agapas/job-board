@@ -9,10 +9,7 @@ import { JobForm } from './JobForm';
 import { NavBar } from './NavBar';
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { loggedIn: isLoggedIn() };
-  }
+  state = { loggedIn: isLoggedIn() };
 
   handleLogin() {
     this.setState({ loggedIn: true });
