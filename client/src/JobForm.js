@@ -2,20 +2,14 @@ import React, { Component } from 'react';
 import { createJob } from './requests';
 
 export class JobForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-      description: '',
-    };
-  }
+  state = { title: '', description: '' };
 
-  handleChange(event) {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
-  handleClick(event) {
+  handleClick = (event) => {
     event.preventDefault();
     const { title, description } = this.state;
     createJob({ title, description }).then((job) => {
@@ -38,7 +32,7 @@ export class JobForm extends Component {
                   type="text"
                   name="title"
                   value={title}
-                  onChange={this.handleChange.bind(this)}
+                  onChange={this.handleChange}
                 />
               </div>
             </div>
@@ -50,7 +44,7 @@ export class JobForm extends Component {
                   style={{height: '10em'}}
                   name="description"
                   value={description}
-                  onChange={this.handleChange.bind(this)}
+                  onChange={this.handleChange}
                 />
               </div>
             </div>
@@ -58,7 +52,7 @@ export class JobForm extends Component {
               <div className="control">
                 <button
                   className="button is-link"
-                  onClick={this.handleClick.bind(this)}
+                  onClick={this.handleClick}
                 >Submit</button>
               </div>
             </div>

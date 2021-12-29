@@ -111,7 +111,7 @@ export async function loadJob(id) {
 }
 
 export async function loadJobs() {
-  const { data: { jobs } } = await client.query({
+  const { data: { jobs }} = await client.query({
     query: jobsQuery,
     fetchPolicy: 'no-cache'
   });
